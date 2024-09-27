@@ -1,0 +1,33 @@
+.productos-link {
+    margin-top: 40px;
+    @include flex-row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    .seccion {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: fit;
+        }
+
+        a {
+            text-transform: lowercase;
+            text-decoration: none;
+            color: #00544e;
+        }
+
+        h2 {
+            text-transform: uppercase;
+        }
+    }
+}
+
+

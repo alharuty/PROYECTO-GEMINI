@@ -1,0 +1,30 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./app.scss";
+@import "./auth.scss";
+@import "./muestra-products.scss";
+@import "./prueba-cart.scss";
+@import "./perfil-admin.scss";
+@import "./home.scss";
+@import "./slider.scss";
+@import "./fotos-aleatorios.scss";
+@import "./modal-personalizacion.scss";
+@import "./payment.scss";
+@import "./estilos-a-limpiar.scss";
+@import "./paginacion.scss";
+@import "./responsive.scss";
+@import "./about.scss";
+@import "./productos.scss";
+@import "./navegador.scss";
+
+html {
+    margin: 0;
+    padding: 0;
+    background-color: $color-base;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "PT Serif", serif;
+}

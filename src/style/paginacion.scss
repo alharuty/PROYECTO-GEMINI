@@ -1,0 +1,46 @@
+.paginacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .paginacion-moverse {
+        background-color: $rosa-oscuro;
+        padding: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $marroncito;
+        }
+    }
+
+    .lista-paginacion {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .pagina-actual {
+            background-color: $marroncito;
+        }
+
+        li a {
+            text-decoration: none;
+            background-color: $rosa-oscuro;
+            color: black;
+            font-weight: bold;
+            padding: 10px;
+            
+            
+
+            &:hover {
+                background-color: $marroncito;
+            }
+        }
+
+       
+
+        li {
+            list-style: none;
+        }
+    }
+}

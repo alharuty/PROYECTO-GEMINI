@@ -1,0 +1,116 @@
+.portfolio-manager-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .fila-1 {
+        background-color: $rosa-claro;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 100%;
+
+        .columna-izquierda {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .columna-derecha {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .modelos-disponibles {
+                padding: 20px;
+                gap: 20px;
+
+                .productos-disponibles {
+                    .modelo-dispo {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 5px;
+                        
+                    }
+                    .clarito {
+                        background-color: $beige;
+                        color: white;
+                        padding: 10px;
+                        margin: 5px 0;
+                        color: black;
+                    }
+                        
+                    .oscurito{
+                        background-color: $rosa-oscuro;
+                        color: white;
+                        padding: 10px;
+                        margin: 5px 0;
+                        color: black;
+                    }
+                      
+                }
+            }
+        }
+        
+    }
+
+    .fila-2 {
+        background-color: $rosa-oscuro;
+    }
+}
+
+.form-contenedor-subir-nuevo-modelo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+
+    .contenedor-editor-admin {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .editor-datos-admin {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 20px;
+
+            .input-admin {
+                width: 100%;
+
+                input {
+                    width: 70%;
+                    height: 120%;
+                }
+
+                .selector-input{
+                    width: 71%;
+                    height: 120%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 878px) {
+    .form-contenedor-subir-nuevo-modelo {
+        .contenedor-editor-admin {
+            .editor-datos-admin {
+                .input-admin {
+                    width: 120%;
+                }
+            }
+        }
+    }
+    
+}
+
+.perfil-admin-wrapper {
+    width: 100%;
+}
+
+

@@ -1,0 +1,45 @@
+// NAVEGADOR
+.subcontenedor-navegador {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: $color-textos;
+    align-items: center;
+
+    .navegador-general {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        
+        .navegador {
+            width: 100%;
+            font-size: 1.2em;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: center;
+        
+            a {
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+// NAVEGADOR RESPONSIVE
+@media (max-width: 513px) {
+    .contenedor-productos-api {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navegador-general {
+        font-size: 0.70em;
+    }
+
+    .logo-gemini {
+        height: 90px;
+    }
+}

@@ -1,0 +1,36 @@
+
+/* Estilo para el contenido del modal */
+.ReactModal__Content {
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  width: 400px; /* Ancho fijo */
+  max-width: 80%; /* Ancho máximo responsivo */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  position: relative; /* Posición relativa */
+  margin: 0 auto; /* Centrando el modal */
+}
+
+/* Estilo para el encabezado del modal */
+.ReactModal__Content h1 {
+  margin: 0; /* Sin margen */
+  font-size: 1.5rem; /* Tamaño de fuente más grande */
+  text-align: center; /* Centrando el texto */
+  color: #333; /* Color del texto */
+}
+
+/* Estilo para el botón de cerrar */
+.ReactModal__Content button {
+  background-color: #007BFF; /* Color de fondo azul */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 15px; /* Espaciado interno */
+  cursor: pointer; /* Cambiar el cursor */
+  display: block; /* Ocupa todo el ancho disponible */
+  margin: 20px auto 0; /* Margen superior y centrado */
+  transition: background-color 0.3s; /* Transición suave */
+}
+
+.ReactModal__Content button:hover {
+  background-color: #0056b3; /* Color al pasar el mouse */
+}

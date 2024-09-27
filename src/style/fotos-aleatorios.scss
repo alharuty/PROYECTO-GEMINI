@@ -1,0 +1,195 @@
+.productos-de-muestra-home {
+    @include flex-column;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    background-color: $color-base;
+    border-top: 1px solid $marroncito;    
+    .titulo-fotos-aleatorios{
+        h3 {
+            color: $color-textos
+        }
+    }
+    
+    .home-productos-de-muestra {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: hidden;
+
+        .producto-de-muestra {
+            width: 250px;
+            margin: 10px;
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid $marroncito;
+            box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.41);
+            
+            img {
+                width: 100%;
+                height: 30vh;
+                object-fit: cover;
+                display: block;
+            }
+
+            h4 {
+                margin-bottom: 0;
+            }
+
+            p {
+                margin: 0;
+            }
+            
+           .contenedor-carrito-fotos-aleatorios {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                justify-content: space-around;
+                width: 100%;
+                .fotos-aleatorios-precio {
+                    font-weight: bold;
+                    margin: 10px;
+                    color:  $color-textos;
+                }
+
+                .fotos-aleatorios-carrito {
+                    margin: 10px;
+                    button {
+                        background-color: $color-base;
+                        border: none;
+                        
+                    
+                        &:hover {
+                            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+
+                        }
+                    
+                    }
+                    .icono-bag-shopping {
+                        font-size: 18px;
+                        color: $color-textos;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+           }
+        }
+    }
+
+    .cta-link-productos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        background-color: $color-textos;
+        margin-top: 20px;
+        border: 2px solid #D2C3B5;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
+    
+        &:hover {
+            box-shadow: 0 10px 17px rgba(0, 0, 0, 0.2);
+        }          
+    
+        a {
+            text-decoration: none;
+            color: $color-base;
+        }
+
+        a:hover {
+            color: $color-secundario;
+        }
+    }
+
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo negro con 50% de opacidad */
+    z-index: 9998;  /* Justo debajo del modal */
+  }
+
+.mini-modal {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 84, 78, 0.9); /* Verde oscuro con opacidad del 90% */
+    color: #D2C3B5;  /* Texto beige */
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 9999;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .mini-modal{
+    padding: 40px;
+    p{
+        text-align: center;
+        color: $color-base;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+   
+
+
+  }
+
+
+@media (max-width: 1265px) {
+    .productos-de-muestra-home {
+        .home-productos-de-muestra {
+            .producto-de-muestra {
+                width: 150px;
+                img {
+                    
+                    height: 20vh;
+                }
+            } 
+        }
+    } 
+}
+
+@media (max-width: 1000px) {
+    .productos-de-muestra-home {
+        .home-productos-de-muestra {
+            .producto-de-muestra {
+                
+                img {
+                    height: 15vh;
+                }
+            } 
+        }
+    }  
+}
+
+@media (max-width: 728px) {
+    .home-productos-de-muestra {
+        h4 {
+            font-size: 0.8em;
+        }
+    }
+} 
