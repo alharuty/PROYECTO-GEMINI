@@ -1,0 +1,36 @@
+// CORREGIDO 28/09/2021
+
+.navegador-izquierdo {
+    .contenedor-nav-link {
+        .nav-link-activo {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 653px) {
+    .contenedor-navegador {
+        .subcontenedor-navegador {
+            .navegador-general {
+                .navegador-izquierdo {
+                    @include flex-column;
+                    justify-content: center;
+                    align-items: center;
+                    align-items: center;
+                }
+                
+
+                .navegador-derecho {
+                    .navegador-principal {
+                        @include flex-column;
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+}

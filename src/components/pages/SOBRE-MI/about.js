@@ -15,11 +15,11 @@ export default class About extends Component{
 
           <div className="texto-biografia">
 
-            <div>
+            <div className="bio-h1">
               <h1>Me llamo Teresa y soy la creadora de Gemini Art.</h1>
             </div>
 
-            <div className='texto-bio-contenedor'>
+            <div className='bio-p'>
               <p>Siempre he tenido un alma creativa y curiosa así que hace un año, decidí adentrarme en el mundo de la resina,
                 donde he estado creando joyas, platos, vasos y otros objetos únicos. Este nuevo hoby me ha permitido combinar colores
                 y texturas de maneras fascinantes, mientras aprendo sobre paciencia y perseverancia.</p>

@@ -1,3 +1,5 @@
+// CORREGIDO 28/09/2021
+
 .contenedor-productos-api {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -11,12 +13,11 @@
         justify-content: center;
         gap: 10px;
         padding-top: 10px;
-        color: $beige;
+        color: $color-base;
     
         .item {
-            background-color: $marroncito;
-            display: flex;
-            flex-direction: column;
+            background-color: $color-secundario;
+            @include flex-column;
             justify-content: space-evenly;
             align-items: center;
             object-fit: cover;
@@ -31,95 +32,48 @@
             .info-producto {
                 padding: 5px;
                 text-align: center;
-
+                h3 {
+                    color: $color-textos;
+                }
                 .precio{
                     font-weight: bold;
                     margin-bottom: 10px;
+                    color: $color-textos;
                 }
     
                 button {
-                    padding: 10px 20px;
-                    background-color: white;
+                    background-color: $color-base; /* Cambia por el color de tu preferencia */
                     border: none;
+                    margin-left: 30px;
+                    padding: 5px;
+                    border-radius: 20px;
+                    color: $color-textos;
+                    font-size: 1em;
+                    font-weight: bold;
                     cursor: pointer;
-                    transition: background-color 0.3s ease;
-                    border: 1px solid black;
-                    margin: 2px;
-    
+                    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          
                     &:hover {
-                        background-color: lightgray;
+                      background-color: darken($color-base, 10%);
+                      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
                     }
                 }
+            
             }
         }
     }
 }
 
+
 @media (max-width: 1124px) {
-    .container-productos-api {
+    .contenedor-productos-api {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }  
 }
 
 @media (max-width: 722px) {
-    .container-productos-api {
+    .contenedor-productos-api {
         grid-template-columns: 1fr 1fr 1fr;
     }  
-}
-
-
-
-
-.contenedor-productos-api-admin {
-    .contenedor-stock-admin {
-        .item {
-            .botones-administrador {
-                display: flex;
-                flex-direction: row;
-                .boton-borrar-item {
-                    width: 50%;
-                    padding: 5px;
-                
-                    button {
-                        @include button(#ff4d4d);
-                
-                        &:hover {
-                            background-color: #ff1a1a; 
-                        }
-                    }
-                }
-                
-                .boton-editar-item {
-                    width: 50%;
-                    padding: 5px;
-                
-                    button {
-                        @include button(green);
-                
-                        &:hover {
-                            background-color: rgb(12, 83, 12); 
-                        }
-                    }
-                }
-            }
-
-            .nombre-unidades {
-                display: flex;
-                flex-direction: row;
-                gap: 5px;
-                color: black;
-                
-                .nombre-producto {
-                    font-weight: 700;
-                }
-            }
-            .info-producto { 
-                color: black;
-                p {
-                    margin: 0px;
-                    
-                }
-            }
-        }
-    }
 }

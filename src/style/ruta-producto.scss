@@ -1,0 +1,10 @@
+.contenedor-ruta-producto {
+    display: flex;
+    width: 100vw;
+
+    .producto-cuerpo {
+        img {
+            width: 40px;
+        }
+    }
+}

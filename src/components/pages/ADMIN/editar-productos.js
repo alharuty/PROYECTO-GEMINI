@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-// CORREGIDO
 export default class EditarProductos extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      nombre: '',
-      precio: '',
-      cantidadStock: '',
+      nombre: "",
+      precio: "",
+      imagen: null,
+      cantidadStock: "",
       color: 'Rojo',
-      imagen: '',
+      descripcion: "",
+      material: "",
+      descuento: "0",
+      porcentajeDescuento: "0",
+      genero: "",
       productos: []
     };
 
@@ -20,12 +24,11 @@ export default class EditarProductos extends Component {
     this.guardarFormData = this.guardarFormData.bind(this);
   }
 
-  // llamada a la API para obtener los productos existentes al cargar el componente
+  // llamada a la API para obtener las secciones existentes al cargar el componente
   componentDidMount() {
     axios
-      .get('http://127.0.0.1:5000/api/modelos')
+      .get('http://127.0.0.1:5000/api/generos')
       .then((response) => {
-        // console.log("response: ", response.data)
         this.setState({ productos: response.data });
       })
       .catch((error) => {
@@ -33,7 +36,8 @@ export default class EditarProductos extends Component {
       });
 
     // previsualización de la imagen seleccionada
-    document.getElementById('file').onchange = (e) => {
+    this.fileInput = document.getElementById('file');
+    this.fileInput.onchange = (e) => {
       let reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = () => {
@@ -52,9 +56,14 @@ export default class EditarProductos extends Component {
     let formData = new FormData();
 
     formData.append('nombre', this.state.nombre);
-    formData.append('precio', this.state.precio);
-    formData.append('cantidadStock', this.state.cantidadStock);
+    formData.append('precio', parseFloat(this.state.precio)); // Convertir a número
+    formData.append('cantidadStock', parseInt(this.state.cantidadStock, 10)); // Convertir a número
     formData.append('color', this.state.color);
+    formData.append('descripcion', this.state.descripcion);
+    formData.append('material', this.state.material);
+    formData.append('descuento', this.state.descuento);
+    formData.append('porcentajeDescuento', parseFloat(this.state.porcentajeDescuento)); // Convertir a número
+    formData.append('genero', this.state.genero);
 
     if (this.state.imagen) {
       formData.append('imagen', this.state.imagen);
@@ -64,14 +73,16 @@ export default class EditarProductos extends Component {
   }
 
   guardarSubida(event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+
     axios
-      .post('http://127.0.0.1:5000/api/joyas/upload', this.guardarFormData())
+      .post(`http://127.0.0.1:5000/api/productos/upload`, this.guardarFormData())
       .then((response) => {
-        // console.log('response: ', response);
         this.props.guardarDatosRellenados(response.data.portfolio_item);
       })
       .catch((error) => {
         console.log('portfolio form guardarSubida error', error);
+        alert("Error al guardar el producto. Intenta de nuevo."); // Notificación de error
       });
   }
 
@@ -86,7 +97,6 @@ export default class EditarProductos extends Component {
       });
     }
   }
-  
 
   render() {
     return (
@@ -97,22 +107,17 @@ export default class EditarProductos extends Component {
               <h3>SUBIR UN NUEVO PRODUCTO</h3>
 
               <div className="imagen-editor-admin">
-                <input type="file" name="imagen" accept="image/png, image/jpeg, image/jpg" id="file" onChange={this.guardarInputs}/>
+                <input type="file" name="imagen" accept="image/png, image/jpeg, image/jpg" id="file" onChange={this.guardarInputs} />
 
                 <div id="preview" className="styleImage"></div>
               </div>
 
               <div className="input-admin">
-                <select className="selector-input" name="nombre" value={this.state.nombre} onChange={this.guardarInputs} required>
-                  <option value="">Selecciona un producto</option>
-                  {this.state.productos.map((producto) => (
-                    <option key={producto.id_nombre_modelo} value={producto.nombre_modelo}>{producto.nombre_modelo}</option>
-                  ))}
-                </select>
+                <input type="text" name="nombre" placeholder="Nombre del producto" value={this.state.nombre} onChange={this.guardarInputs} required />
               </div>
 
               <div className="input-admin">
-                <input type="text" name="precio" placeholder="Precio" value={this.state.precio} onChange={this.guardarInputs} required />
+                <input type="number" name="precio" placeholder="Precio" value={this.state.precio} onChange={this.guardarInputs} required />
               </div>
 
               <div className="input-admin">
@@ -130,7 +135,32 @@ export default class EditarProductos extends Component {
               </div>
 
               <div className="input-admin">
-                <input type="text" name="cantidadStock" placeholder="Cantidad stock" value={this.state.cantidadStock} onChange={this.guardarInputs} required />
+                <input type="number" name="cantidadStock" placeholder="Cantidad stock" value={this.state.cantidadStock} onChange={this.guardarInputs} required />
+              </div>
+
+              <div className="input-admin">
+                <input type="text" name="descripcion" placeholder="Descripcion del producto" value={this.state.descripcion} onChange={this.guardarInputs} />
+              </div>
+
+              <div className="input-admin">
+                <input type="text" name="material" placeholder="Material del producto" value={this.state.material} onChange={this.guardarInputs} required />
+              </div>
+
+              <div className="input-admin">
+                <input type="text" name="descuento" placeholder="Descuento = 1, No Descuento = 0" value={this.state.descuento} onChange={this.guardarInputs} />
+              </div>
+
+              <div className="input-admin">
+                <input type="number" name="porcentajeDescuento" placeholder="si hay descuento, pon la cantidad (ej: 20)" value={this.state.porcentajeDescuento} onChange={this.guardarInputs} />
+              </div>
+
+              <div className="input-admin">
+                <select className="selector-input" name="genero" value={this.state.genero} onChange={this.guardarInputs} required>
+                  <option value="">Selecciona el género</option>
+                  {this.state.productos.map((producto) => (
+                    <option key={producto.id} value={producto.nombre_genero.toLowerCase()}>{producto.nombre_genero}</option>
+                  ))}
+                </select>
               </div>
             </div>
 

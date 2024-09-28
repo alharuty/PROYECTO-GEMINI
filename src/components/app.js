@@ -11,12 +11,13 @@ import ComponenteNavegador from "./pages/NAVEGADOR/componente-navegador";
 import PerfilAdministrador from './pages/ADMIN/perfil-administrador';
 import Page404 from "./pages/page404";
 import PaginaDePago from "./pages/PAGOS/mi-cesta";
-import Productos from "./pages/PRODUCTOS/productos";
+import Productos from "./pages/PRODUCTOS/generos";
 import Anillos from "./pages/PRODUCTOS/ANILLOS/anillos";
 import Cuadros from "./pages/PRODUCTOS/CUADROS/cuadros";
 import { CartProvider } from './pages/PAGOS/contenido-carrito';
 import PagoCompletado from './pages/PAGOS/pago-completado';
 import PagoCancelado from './pages/PAGOS/pago-cancelado';
+import RutaProducto from './pages/PRODUCTOS/ruta-producto';
 
 // CORREGIDO
 class App extends Component {
@@ -92,6 +93,9 @@ class App extends Component {
               <Route path="/pago" component={PaginaDePago} />
 
               <Route path="/page404" component={Page404} />
+
+              <Route path="/producto/:id" component={RutaProducto} />
+
             </div>
           </CartProvider>
         </Router>

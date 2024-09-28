@@ -1,14 +1,14 @@
+// CORREGIDO 28/09/2024
+
 .carrito-de-compra {
 	width: auto;
 	display: flex;
 	justify-content: right;
 	align-items: center;
 
-	
 	.contenedor-icono {
 		position: relative;
 		
-
 		.contenedor-icono-carrito {
 			.icono-carrito {
 				padding: 10px;
@@ -19,7 +19,7 @@
 
 				&:hover {
 					cursor: pointer;
-					color: $rosa-claro;
+					color: $color-base;
 				}
 			}
 
@@ -29,7 +29,7 @@
 				right: 15px;
 				font-weight: 900;
 				font-size: 12px;
-				background-color: $rosa-oscuro;
+				background-color: $color-secundario;
 				width: 20px;
 				height: 20px;
 				display: flex;
@@ -41,14 +41,13 @@
 		}
 		
 		.contenedor-productos-carrito {
-			display: flex;
-			flex-direction: column;
+			@include flex-column;
 			justify-content: center;
 			margin-top: 5px;
 			position: absolute;
 			top: 50px;
 			right: 20px;
-			background-color: $marroncito;
+			background-color: $color-secundario;
 			width: 400px;
 			color: black;
 			z-index: 1;
@@ -63,8 +62,7 @@
 			.productos-carrito {
 				.fila-productos {
 					.producto-carrito {
-						display: flex;
-						flex-direction: row;
+						@include flex-row;
 						align-items: center;
 						justify-content: space-evenly;
 						align-content: center;

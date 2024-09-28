@@ -5,7 +5,7 @@ import ListadoProductos from "./../../listado-productos";
 function Pendientes() {
   return (
     <div className="app-manejador">
-      <ListadoProductos apiEndpoint="joyas" />
+      <ListadoProductos propGenero="pendientes" />
     </div>
   );
 }

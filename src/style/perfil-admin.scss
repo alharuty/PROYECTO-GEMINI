@@ -1,100 +1,149 @@
-.portfolio-manager-wrapper {
+// CORREGIDO 28/09/2021
+
+
+.perfil-admin-wrapper {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    background-color: $color-base;
+    color: $color-textos;
 
-    .fila-1 {
-        background-color: $rosa-claro;
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
+    .portfolio-manager-wrapper {
         width: 100%;
-
-        .columna-izquierda {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .columna-derecha {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-
-            .modelos-disponibles {
-                padding: 20px;
-                gap: 20px;
-
-                .productos-disponibles {
-                    .modelo-dispo {
-                        display: flex;
-                        flex-direction: row;
-                        gap: 5px;
-                        
-                    }
-                    .clarito {
-                        background-color: $beige;
-                        color: white;
-                        padding: 10px;
-                        margin: 5px 0;
-                        color: black;
-                    }
-                        
-                    .oscurito{
-                        background-color: $rosa-oscuro;
-                        color: white;
-                        padding: 10px;
-                        margin: 5px 0;
-                        color: black;
-                    }
-                      
-                }
-            }
-        }
-        
-    }
-
-    .fila-2 {
-        background-color: $rosa-oscuro;
-    }
-}
-
-.form-contenedor-subir-nuevo-modelo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    padding: 20px;
-    gap: 20px;
-
-    .contenedor-editor-admin {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        .editor-datos-admin {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
+        @include flex-column;
+    
+        .fila-1 {
+            @include flex-row;
             gap: 20px;
-
-            .input-admin {
+            width: 100%;
+    
+            .columna-izquierda {
+                @include flex-column;
                 width: 100%;
 
-                input {
-                    width: 70%;
-                    height: 120%;
+                .form-contenedor-subir-nuevo-modelo {
+                    @include flex-column;
+                    justify-content: center;
+                    width: 100%;
+                    padding: 20px;
+                    gap: 20px;
+                
+                    .contenedor-editor-admin {
+                        @include flex-column;
+                        width: 100%;
+                        gap: 20px;
+                
+                        .editor-datos-admin {
+                            @include flex-column;
+                            width: 100%;
+                            gap: 20px;
+                
+                            .input-admin {
+                                width: 100%;
+                
+                                input {
+                                    width: 70%;
+                                    height: 120%;
+                                }
+                
+                                .selector-input{
+                                    width: 71%;
+                                    height: 120%;
+                                }
+                            }
+                        }
+                    }
                 }
+            }
+    
+            .columna-derecha {
+                @include flex-column;
+                width: 100%;
 
-                .selector-input{
-                    width: 71%;
-                    height: 120%;
+                .generos-disponibles {
+                    padding: 20px;
+                    gap: 20px;
+    
+                    .genero {
+                        .genero-dispo {
+                            @include flex-row;
+                            gap: 5px; 
+                        }
+                        .clarito {
+                            background-color: #837365;
+                            color: white;
+                            padding: 10px;
+                            margin: 5px 0;
+                            color: black;
+                        }
+                            
+                        .oscurito{
+                            background-color: $color-secundario;
+                            color: white;
+                            padding: 10px;
+                            margin: 5px 0;
+                            color: black;
+                        }
+                          
+                    }
+                }
+            }
+            
+        }
+    
+        .fila-2 {
+            .contenedor-productos-api-admin {
+                .contenedor-stock-admin {
+                    .item {
+                        .botones-administrador {
+                            @include flex-row;
+                            .boton-borrar-item {
+                                width: 50%;
+                                padding: 5px;
+                            
+                                button {
+                                    @include button(#ff4d4d);
+                            
+                                    &:hover {
+                                        background-color: #ff1a1a; 
+                                    }
+                                }
+                            }
+                            
+                            .boton-editar-item {
+                                width: 50%;
+                                padding: 5px;
+                            
+                                button {
+                                    @include button(green);
+                            
+                                    &:hover {
+                                        background-color: rgb(12, 83, 12); 
+                                    }
+                                }
+                            }
+                        }
+
+                        .nombre-unidades {
+                            @include flex-row;
+                            gap: 5px;
+                            color: $color-textos;
+                            
+                            .nombre-producto {
+                                font-weight: 700;
+                            }
+                        }
+                        .info-producto { 
+                            p {
+                                margin: 0px;
+                                color: $color-textos;
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
+ 
 
 @media (max-width: 878px) {
     .form-contenedor-subir-nuevo-modelo {
@@ -109,8 +158,14 @@
     
 }
 
-.perfil-admin-wrapper {
-    width: 100%;
+
+@media (max-width: 650px) {
+    .perfil-admin-wrapper {
+        .portfolio-manager-wrapper {
+            .fila-1 {
+                @include flex-column;
+            }
+        }
+    }
+    
 }
-
-

@@ -1,21 +1,20 @@
-// NAVEGADOR
+// CORREGIDO 28/09/2021
+
+
 .subcontenedor-navegador {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     padding: 10px;
     background-color: $color-textos;
     align-items: center;
 
     .navegador-general {
-        display: flex;
-        flex-direction: row;
+        @include flex-row;
         gap: 20px;
         
         .navegador {
+            @include flex-row;
             width: 100%;
             font-size: 1.2em;
-            display: flex;
-            flex-direction: row;
             gap: 20px;
             align-items: center;
         
@@ -29,7 +28,6 @@
 }
 
 
-// NAVEGADOR RESPONSIVE
 @media (max-width: 513px) {
     .contenedor-productos-api {
         grid-template-columns: 1fr 1fr;

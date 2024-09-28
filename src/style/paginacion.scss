@@ -1,16 +1,18 @@
+// CORREGIDO 28/09/2021
+
 .paginacion {
-    display: flex;
-    flex-direction: row;
+    @include flex-row;
     justify-content: space-between;
     align-items: center;
+    color: $color-textos;
 
     .paginacion-moverse {
-        background-color: $rosa-oscuro;
+        background-color: $color-secundario;
         padding: 10px;
         cursor: pointer;
 
         &:hover {
-            background-color: $marroncito;
+            background-color: #837365;
         }
     }
 
@@ -20,24 +22,19 @@
         gap: 10px;
 
         .pagina-actual {
-            background-color: $marroncito;
+            background-color: #837365;
         }
 
         li a {
             text-decoration: none;
-            background-color: $rosa-oscuro;
-            color: black;
             font-weight: bold;
+            color: $color-textos;
             padding: 10px;
-            
-            
 
             &:hover {
-                background-color: $marroncito;
+                background-color: #837365;
             }
         }
-
-       
 
         li {
             list-style: none;

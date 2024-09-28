@@ -1,0 +1,77 @@
+// CORREGIDO 28/09/2024
+
+.cesta {
+    width: 100%;
+    text-align: center;
+
+    .cesta-y-pago {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 20px;
+
+        .contenido-cesta {
+            background-color: $color-secundario;
+
+            .producto-cesta {
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+                align-items: center;
+                text-align: left;
+                gap: 10px;
+
+                .nombre-cantidad-precio {
+                    @include flex-row;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 10px;
+                    box-shadow: 0px 10px 6px -3px rgba(219,181,181,1);
+                
+                    .nombre-producto-cesta {
+                        text-transform: uppercase;
+                    }
+
+                    .cantidad-precio-cesta  {
+                        @include flex-column;
+                        justify-content: center;
+                        text-align: right;
+                        gap: 10px;
+                        .precio-subtotal-cesta {
+                            p{
+                                font-weight: 900;
+                            }
+                        }
+                    }
+                    
+                }
+
+                .imagen-en-pago {
+                    width: 100px;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .info-cliente {
+            background-color: $color-secundario;
+
+            .reellenar-datos-para-envio {
+                .columna-fila {
+                    @include flex-row;
+                    gap: 10px;
+                    justify-content: left;
+                }
+
+            }
+        }
+    }
+}
+
+
+@media (max-width: 717px) {
+    .cesta-y-pago {
+        @include flex-column;
+        gap: 20px;
+    }
+
+}

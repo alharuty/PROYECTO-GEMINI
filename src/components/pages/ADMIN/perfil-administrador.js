@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MuestraProductosApi from './muestra-productos-api';
 import EditarProductos from './editar-productos';
-import CrearModeloProducto from "./crear-modelo-producto";
-import ModelosDisponibles from "./modelos-disponibles";
+import SubirGenero from "./subir-genero";
+import Generos from "./generos";
 import axios from 'axios';
 
 // CORREGIDO
@@ -23,7 +23,7 @@ export default class PerfilAdministrador extends Component {
   }
 
   eliminarElProducto(elProducto) {
-    axios.delete(`http://127.0.0.1:5000/api/joyas/${elProducto.id}`).then(response => {
+    axios.delete(`http://127.0.0.1:5000/api/productos/${elProducto.id}`).then(response => {
       this.setState({
         productosSubidos: this.state.productosSubidos.filter(item => {
           return item.id !== elProducto.id
@@ -60,7 +60,7 @@ export default class PerfilAdministrador extends Component {
   }
 
   traerProductosDesdeApi() {
-    axios.get('http://127.0.0.1:5000/api/joyas')
+    axios.get('http://127.0.0.1:5000/api/productos')
       .then(response => {
         this.setState({
           productosSubidos: response.data
@@ -75,7 +75,12 @@ export default class PerfilAdministrador extends Component {
   render() {
     return (
       <div className="perfil-admin-wrapper">
-        <button onClick={this.botonCerrarSesion}>Cerrar Sesión</button>
+
+        <div className="titulo-admin">
+          <h3>Perfil de Administrador</h3>
+          <button onClick={this.botonCerrarSesion}>Cerrar Sesión</button>
+        </div>
+        
 
         <div className="portfolio-manager-wrapper">
 
@@ -84,13 +89,13 @@ export default class PerfilAdministrador extends Component {
 
               <EditarProductos guardarDatosRellenados={this.guardarDatosRellenados} errorFormulario={this.errorFormulario}/>
 
-              <CrearModeloProducto />
+              <SubirGenero />
 
             </div>
 
             <div className="columna-derecha">
 
-              <ModelosDisponibles />
+              <Generos />
 
             </div>
 

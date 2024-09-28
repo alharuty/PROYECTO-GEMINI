@@ -21,11 +21,11 @@ export default class Productos extends Component{
 
 
   traerSecciones() {
-    axios.get("http://localhost:5000/api/secciones-navegador")
+    axios.get("http://localhost:5000/api/generos")
     .then(response => {
-      console.log("Secciones API: ", response.data);
+      // console.log("Secciones API: ", response.data);
         this.setState({ secciones: response.data });
-        console.log("Secciones: ", this.state.secciones);
+        // console.log("Secciones: ", this.state.secciones);
     })
     .catch(error => {
         console.log("Error al traer las secciones", error);
@@ -39,12 +39,14 @@ export default class Productos extends Component{
     return (
       <div className="productos-link">
         {secciones.length > 0 ? secciones.map(seccion => (
-          <Zoom>
-            <div key={seccion.id} className="seccion">
-              <a href={seccion.nombre_seccion}><img src={seccion.imagen_seccion}/></a>
-              <a href={seccion.nombre_seccion} className="texto-h2"><h2>{seccion.nombre_seccion}</h2></a>
-            </div>
-          </Zoom>
+          
+          <div key={seccion.id} className="seccion">
+            <Zoom>
+            <a href={seccion.nombre_genero}><img src={seccion.imagen_genero}/></a>
+            <a href={seccion.nombre_genero} className="texto-h2"><h2>{seccion.nombre_genero}</h2></a>
+            </Zoom>
+          </div>
+
         )) :
           <div> No hay ninguna seccion</div>
         }

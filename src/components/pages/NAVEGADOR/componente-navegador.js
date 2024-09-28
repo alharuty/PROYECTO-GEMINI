@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import NavbarRight from "./navbar-right";
-import NavbarLeft from "./navbar-left";
+import NavegadorDerecho from "./navegador-derecho";
+import NavegadorIzquierdo from "./navegador-izquierdo";
 import Logo from "../../../../static/assets/images/Logo-sin-fondo.png";
 import { NavLink } from 'react-router-dom';
 import Carrito from "../PAGOS/carrito";
@@ -14,7 +14,7 @@ function ComponenteNavegador() {
       <header className="subcontenedor-navegador">
         <div className="navegador-general">
 
-          <NavbarLeft />
+          <NavegadorIzquierdo />
 
           <NavLink to="/" >
 
@@ -22,7 +22,7 @@ function ComponenteNavegador() {
 
           </NavLink>
 
-          <NavbarRight />
+          <NavegadorDerecho />
 
           <Carrito allProducts={allProducts} setAllProducts={setAllProducts} total={total} setTotal={setTotal} countProducts={countProducts} setCountProducts={setCountProducts} />
         

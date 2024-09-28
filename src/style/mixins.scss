@@ -1,31 +1,18 @@
+// CORREGIDO 28/09/2021
+
 @mixin button($color) {
     width: 100%;
-    background-color: $color; /* Color rojo de alerta */
-    color: black; /* Texto en blanco */
-    border: none; /* Sin bordes */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 5px 10px; /* Relleno interno */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cursor tipo pointer */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Transición para hover */
+    background-color: $color;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
     gap: 8px;
 }
 
-
-// @mixin flex-row($justify, $align) {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: $justify;
-//     align-items: $align;
-    
-// }
-
-// @mixin flex-column($justify, $align) {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: $justify;
-//     align-items: $align;
-// }
 
 @mixin flex-column {
     display: flex;

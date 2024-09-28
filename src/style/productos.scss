@@ -1,3 +1,6 @@
+// CORREGIDO 28/09/2024
+
+
 .productos-link {
     margin-top: 40px;
     @include flex-row;
@@ -7,8 +10,7 @@
     gap: 20px;
 
     .seccion {
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         justify-content: center;
         align-items: center;
 
@@ -29,5 +31,3 @@
         }
     }
 }
-
-

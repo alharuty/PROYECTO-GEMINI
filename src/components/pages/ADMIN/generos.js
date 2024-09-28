@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Paginacion } from './../paginacion';
+import { Paginacion } from '../paginacion';
 
 // CORREGIDO
-export default class ModelosDisponibles extends Component {
+export default class Generos extends Component {
   constructor() {
     super();
 
@@ -14,17 +14,17 @@ export default class ModelosDisponibles extends Component {
       totalProductos: 0,
     };
 
-    this.traerModelosDisponibles = this.traerModelosDisponibles.bind(this);
+    this.traerGeneros = this.traerGeneros.bind(this);
     this.actualizarPaginaActual = this.actualizarPaginaActual.bind(this);
   }
 
   componentDidMount() {
-    this.traerModelosDisponibles();
+    this.traerGeneros();
   }
 
-  traerModelosDisponibles() {
+  traerGeneros() {
     axios
-      .get('http://127.0.0.1:5000/api/modelos')
+      .get('http://127.0.0.1:5000/api/generos')
       .then((response) => {
         this.setState({ 
           productos: response.data,
@@ -32,7 +32,7 @@ export default class ModelosDisponibles extends Component {
         });
       })
       .catch((error) => {
-        console.error('Error mostrando los modelos: ', error);
+        console.error('Error mostrando las secciones: ', error);
       });
   }
 
@@ -48,14 +48,13 @@ export default class ModelosDisponibles extends Component {
     const productosActuales = productos.slice(primerIndex, ultimoIndex);
 
     return (
-      <div className="modelos-disponibles">
-        <h3>MODELOS DISPONIBLES</h3>
-        <div className="productos-disponibles">
+      <div className="generos-disponibles">
+        <h3>Géneros disponibles</h3>
+        <div className="genero">
           {productosActuales.map((producto, index) => (
-            <div key={producto.id_nombre_modelo} className={`modelo-dispo ${index % 2 === 0 ? 'clarito' : 'oscurito'}`}>
-              <p>{producto.id_nombre_modelo} | </p>
-              <p>{producto.nombre_modelo}</p>
-              <p>- {producto.precio_modelo}€</p>
+            <div key={producto.id} className={`genero-dispo ${index % 2 === 0 ? 'clarito' : 'oscurito'}`}>
+              <p>{producto.id} | </p>
+              <p>{producto.nombre_genero}</p>
             </div>
           ))}
         </div>

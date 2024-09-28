@@ -1,27 +1,27 @@
+// CORREGIDO 28/09/2024
+
 .pagina-login {
     width: 100%;
     height: 100vh;
     margin: 0;
-    background-color: $beige;
-    display: flex;
-    flex-direction: column;
+    background-color: $color-base;
+    @include flex-column;
     justify-content: center;
     align-items: center;    
     
     .pagina-login-contenedor {
-        box-shadow: 10px 10px 5px 0px rgba(152,112,112,1);
+        box-shadow: 10px 10px 5px 0px rgba(0, 84, 78, 1);
         padding: 20px;
-        border: 1px solid $marroncito;
+        border: 1px solid $color-textos;
         width: 50%;
         height: 50%;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         justify-content: center;
         align-items: center;
 
         h2 {
             text-align: center;
-            color: $marroncito;
+            color: $color-textos;
         }
 
         .form-inicio-sesion-admin {
@@ -29,16 +29,14 @@
             width: 100%;
             justify-content: center;
             .pagina-login-form {
-                display: flex;
+                @include flex-column;
                 width: 90%;
-                flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 gap: 20px;
                 .pagina-login-inputs {
                     width: 70%;
-                    display: flex;
-                    flex-direction: column;
+                    @include flex-column;
                     justify-content: center;
                     align-items: center;
                     gap: 20px;
@@ -47,16 +45,15 @@
                         width: 100%;   
                         height: 40px;
                         border-radius: 80px 20px;
-                        border-color: $marroncito;
+                        border-color: $color-textos;
                         padding-left: 20px;
     
                         &:hover {
-                            box-shadow: 10px 13px 13px -4px rgba(152,112,112,1);
+                            box-shadow: 6px 8px 8px -2px rgba(0, 84, 78, 1);
                         }
     
                         &:focus {
-                            box-shadow: 10px 13px 13px -4px rgba(152,112,112,1);
-    
+                            box-shadow: 6px 8px 8px -2px rgba(0, 84, 78, 1);
                         }
 
                         &::placeholder {
@@ -68,24 +65,19 @@
                 button {
                     width: 70%;
                     height: 30px;
-                    border: 1px solid $marroncito;
+                    border: 1px solid $color-textos;
                     border-radius: 5px;
-                    background-color: $marroncito;
-                    color: $beige;
+                    background-color: $color-textos;
+                    color: $color-base;
                     cursor: pointer;
     
                     &:hover {
                         border: 1px solid black;
-                        background-color: $beige;
-                        color: $marroncito;
+                        background-color: $color-base;
+                        color: $color-textos;
                     }
                 }
             }
         }
     }
-   
-
-    
-    
-
 }

@@ -1,4 +1,6 @@
-// HOME
+// CORREGIDO 25/09/2021
+
+
 .contenedor-home {
     @include flex-column;
     text-align: center;
@@ -50,10 +52,10 @@
     .productos-link {
         .seccion {
             img {
-                transition: filter 0.3s ease-in-out;  /* Aplicar la transición suave al filtro */
+                transition: filter 0.3s ease-in-out;
     
                 &:hover {
-                    filter: blur(2px);  /* Aplicar blur al pasar el cursor */
+                    filter: blur(2px);
                 }
             }
         }
@@ -92,16 +94,14 @@
 
     .pie-pagina {
         background-color: $color-secundario;
-        display: flex;
-        flex-direction: row;
+        @include flex-row;
         width: 100%;
         justify-content: space-around;
         align-items: center;
         gap: 40px;
 
         .paginas-interes {
-            display: flex;
-            flex-direction: column;
+            @include flex-column;
             text-align: left;
 
             a {
@@ -117,8 +117,7 @@
 
         .servicios-contenedor {
             .servicios-iconos {
-                display: flex;
-                flex-direction: row;
+                @include flex-row;
                 justify-content: left;
                 align-items: center;
                 gap: 40px;
@@ -127,12 +126,10 @@
         }
 
         .datos-contacto {
-            display: flex;
-            flex-direction: column;
+            @include flex-column;
             align-content: center;
             .contacto {
-                display: flex;
-                flex-direction: row;
+                @include flex-row;
                 justify-content: left;
                 align-items: center;
                 gap: 40px;

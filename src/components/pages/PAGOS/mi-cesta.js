@@ -3,6 +3,7 @@ import { ContextoCarrito } from './contenido-carrito';
 
 // CORREGIR NOMBRES DE VARIABLES
 const PaginaDePago = () => {
+    
   const { allProducts, total, limpiarCarrito } = useContext(ContextoCarrito);
   const [cliente, setCliente] = useState({
     nombre: '',
@@ -29,7 +30,7 @@ const PaginaDePago = () => {
   };
 
   // Validar los datos antes de enviar el formulario
-  const validateForm = () => {
+  const validarFormulario = () => {
     const { nombre, apellidos, email, telefono, tipoVia, nombreCalle, numeroCalle, pisoPuerta, codigoPostal, ciudad, provincia, pais } = cliente;
 
     if (!nombre || !apellidos || !email || !telefono ||  !tipoVia || !nombreCalle || !numeroCalle || !pisoPuerta || !codigoPostal || !ciudad || !provincia || !pais) {
@@ -62,7 +63,7 @@ const PaginaDePago = () => {
   };
 
   const terminarPago = async () => {
-    if (!validateForm()) return;
+    if (!validarFormulario()) return;
   
     setIsLoading(true);
   
@@ -95,7 +96,9 @@ const PaginaDePago = () => {
         <h1>MI CESTA</h1>
         <div className="cesta-y-pago">
             <div className="contenido-cesta">
-                <div><h3>PASO 1: Revisa tu cesta</h3></div>
+                <div>
+                    <h3>PASO 1: Revisa tu cesta</h3>
+                </div>
                 {carritoVacio ? (
                     <p>El carrito está vacío.</p>
                 ) : (
@@ -119,7 +122,7 @@ const PaginaDePago = () => {
                             </div>
                           
                             <div>
-                                <img src={product.imagen} alt={product.nombre} className="imagen-cesta"/>
+                                <img src={product.imagen} alt={product.nombre} className="imagen-en-pago"/>
                             </div>
                             
                         </li>
@@ -131,7 +134,7 @@ const PaginaDePago = () => {
 
             <div className="info-cliente">
                 <h3>PASO 2: Rellena tus datos</h3>
-                <form>
+                <form className="reellenar-datos-para-envio">
                     <div className="columna-fila">
                         <div>
                             <input type="text" className="form-control" id="nombre" name="nombre" placeholder="Nombre" value={cliente.nombre} onChange={guardarInputs} required />

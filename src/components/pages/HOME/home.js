@@ -4,7 +4,7 @@ import ImagenArtesania from "../../../../static/assets/images/artesania.jpg"
 import ImagenRegalo from "../../../../static/assets/images/regalo.jpg"
 import ImagenPersonaliza from "../../../../static/assets/images/personaliza.jpg"
 import FotosAleatorios from "./fotos-aleatorios"
-import Productos from '../PRODUCTOS/productos';
+import Productos from '../PRODUCTOS/generos';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Iconos from '../../helper/iconos';
 

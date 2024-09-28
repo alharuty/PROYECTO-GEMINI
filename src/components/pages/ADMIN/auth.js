@@ -69,7 +69,7 @@ export default class Auth extends Component {
             <form className="pagina-login-form" onSubmit={this.inicioSesionAdmin}>
               <div className="pagina-login-inputs">
                 <input type="text" name="email" placeholder="Tu email" value={this.state.email} onChange={this.guardarInputs}/>
-                <input type="clave" name="clave" placeholder="Tu clave" value={this.state.clave} onChange={this.guardarInputs}/>
+                <input type="password" name="clave" placeholder="Tu clave" value={this.state.clave} onChange={this.guardarInputs}/>
               </div>
               <button type="submit">Iniciar sesión</button>
             </form>

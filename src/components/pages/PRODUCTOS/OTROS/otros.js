@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import ListadoProductos from "./../../listado-productos";
 
 // CORREGIDO
 export default class Otros extends Component{
   render() {
     return (
       <div>
-        <h2>otros.. PÁGINA EN MANTENIMMIENTO</h2>
+        <ListadoProductos propGenero="otros" />
       </div>
     );
   }
