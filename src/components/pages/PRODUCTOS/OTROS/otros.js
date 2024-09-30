@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ListadoProductos from "./../../listado-productos";
 
-// CORREGIDO
-export default class Otros extends Component{
-  render() {
+function Otros(){
     return (
       <div>
+        <h3>OTROS</h3>
         <ListadoProductos propGenero="otros" />
       </div>
     );
-  }
 }
+
+export default Otros;

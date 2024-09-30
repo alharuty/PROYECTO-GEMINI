@@ -12,14 +12,12 @@ import PerfilAdministrador from './pages/ADMIN/perfil-administrador';
 import Page404 from "./pages/page404";
 import PaginaDePago from "./pages/PAGOS/mi-cesta";
 import Productos from "./pages/PRODUCTOS/generos";
-import Anillos from "./pages/PRODUCTOS/ANILLOS/anillos";
 import Cuadros from "./pages/PRODUCTOS/CUADROS/cuadros";
 import { CartProvider } from './pages/PAGOS/contenido-carrito';
 import PagoCompletado from './pages/PAGOS/pago-completado';
 import PagoCancelado from './pages/PAGOS/pago-cancelado';
 import RutaProducto from './pages/PRODUCTOS/ruta-producto';
 
-// CORREGIDO
 class App extends Component {
   constructor(props) {
     super(props);
@@ -62,12 +60,10 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/pendientes" component={Pendientes} />
-              <Route path="/anillos" component={Anillos} />
               <Route path="/cuadros" component={Cuadros} />
               <Route path="/productos" component={Productos} />
               <Route path="/otros" component={Otros} />
               <Route path="/outlet" component={Outlet} />
-
               <Route path="/pago-completado" component={PagoCompletado} />
               <Route path="/pago-cancelado" component={PagoCancelado} />
               

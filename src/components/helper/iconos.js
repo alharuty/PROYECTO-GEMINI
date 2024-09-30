@@ -25,7 +25,6 @@ const Iconos = () => {
         faPhone,
         faEnvelope,
         faHashtag
-    
     );
 };
 

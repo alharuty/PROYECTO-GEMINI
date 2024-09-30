@@ -7,7 +7,6 @@ import Iconos from "../../helper/iconos";
 
 Iconos();
 
-// CORREGIDO
 export default class FotosAleatorios extends Component {
     constructor() {
         super();
@@ -84,13 +83,11 @@ export default class FotosAleatorios extends Component {
         setTotal(total + product.precio);
         setCountProducts(countProducts + 1);
 
-        // Mostrar el modal
         this.setState({ mostrarModal: true });
 
-        // Ocultar el modal automáticamente después de 3 segundos
         setTimeout(() => {
             this.setState({ mostrarModal: false });
-        }, 3000); // 3 segundos
+        }, 3000);
     };
 
     render() {
@@ -132,19 +129,18 @@ export default class FotosAleatorios extends Component {
                                         <button onClick={() => this.añadirAlCarrito(producto)}><FontAwesomeIcon icon="bag-shopping" className='icono-bag-shopping' /></button>
                                     </div>
 
-                                    {/* Mostrar el overlay y el modal si el estado es true */}
                                     {mostrarModal && (
                                     <div className="modal-añadido-al-carrito">
                                         <div className="modal-overlay"></div>
-                                        <div className="mini-modal">
-                                        <p>Producto añadido al carrito</p>
-                                        <a href="/pago">Ver mi cesta</a>
+                                            <div className="mini-modal">
+                                            <p>Producto añadido al carrito</p>
+                                            <a href="/pago">Ver mi cesta</a>
+                                            <button className="boton-modal-cerrar" onClick={() => this.setState({ mostrarModal: false })}>Seguir comprando</button>
                                         </div>
                                     </div>
                                     )}
                                 </div>
                                 
-                                {/* <button>Ver</button> */}
                             </div>
                         ))
                     ) : (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class EditarProductos extends Component {
+export default class CrearProducto extends Component {
   constructor(props) {
     super(props);
 
@@ -21,10 +21,8 @@ export default class EditarProductos extends Component {
 
     this.guardarInputs = this.guardarInputs.bind(this);
     this.guardarSubida = this.guardarSubida.bind(this);
-    this.guardarFormData = this.guardarFormData.bind(this);
   }
 
-  // llamada a la API para obtener las secciones existentes al cargar el componente
   componentDidMount() {
     axios
       .get('http://127.0.0.1:5000/api/generos')
@@ -35,14 +33,13 @@ export default class EditarProductos extends Component {
         console.error('Error al cargar los productos: ', error);
       });
 
-    // previsualización de la imagen seleccionada
     this.fileInput = document.getElementById('file');
     this.fileInput.onchange = (e) => {
       let reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = () => {
         let preview = document.getElementById('preview');
-        preview.innerHTML = ''; // Limpiar previsualización anterior
+        preview.innerHTML = '';
         let imagen = document.createElement('img');
         imagen.src = reader.result;
         imagen.style.width = '200px';
@@ -50,41 +47,69 @@ export default class EditarProductos extends Component {
         preview.append(imagen);
       };
     };
+
   }
 
-  guardarFormData() {
-    let formData = new FormData();
+  componentDidUpdate(prevProps) {
+    if (prevProps.productoAEditar !== this.props.productoAEditar && this.props.productoAEditar) {
+      const productoAEditar = this.props.productoAEditar;
 
+      this.setState({
+        nombre: productoAEditar.nombre,
+        precio: productoAEditar.precio,
+        cantidadStock: productoAEditar.cantidadStock,
+        color: productoAEditar.color,
+        descripcion: productoAEditar.descripcion,
+        material: productoAEditar.material,
+        descuento: productoAEditar.descuento,
+        porcentajeDescuento: productoAEditar.porcentajeDescuento,
+        genero: productoAEditar.genero
+      });
+    }
+  }
+  
+  guardarSubida(event) {
+    event.preventDefault();
+
+    const { productoAEditar } = this.props;
+    const url = productoAEditar && productoAEditar.id 
+        ? `http://127.0.0.1:5000/api/productos/${productoAEditar.id}/edit`
+        : 'http://127.0.0.1:5000/api/productos/upload';
+
+    const method = productoAEditar && productoAEditar.id ? 'put' : 'post';
+
+    const formData = new FormData();
     formData.append('nombre', this.state.nombre);
-    formData.append('precio', parseFloat(this.state.precio)); // Convertir a número
-    formData.append('cantidadStock', parseInt(this.state.cantidadStock, 10)); // Convertir a número
+    formData.append('precio', parseFloat(this.state.precio));
+    formData.append('cantidadStock', parseInt(this.state.cantidadStock, 10));
     formData.append('color', this.state.color);
     formData.append('descripcion', this.state.descripcion);
     formData.append('material', this.state.material);
     formData.append('descuento', this.state.descuento);
-    formData.append('porcentajeDescuento', parseFloat(this.state.porcentajeDescuento)); // Convertir a número
+    formData.append('porcentajeDescuento', parseFloat(this.state.porcentajeDescuento));
     formData.append('genero', this.state.genero);
 
     if (this.state.imagen) {
-      formData.append('imagen', this.state.imagen);
+        formData.append('imagen', this.state.imagen);
     }
 
-    return formData;
-  }
-
-  guardarSubida(event) {
-    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
-
-    axios
-      .post(`http://127.0.0.1:5000/api/productos/upload`, this.guardarFormData())
-      .then((response) => {
+    axios({
+        method,
+        url,
+        data: formData,
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    .then((response) => {
         this.props.guardarDatosRellenados(response.data.portfolio_item);
-      })
-      .catch((error) => {
-        console.log('portfolio form guardarSubida error', error);
-        alert("Error al guardar el producto. Intenta de nuevo."); // Notificación de error
-      });
-  }
+    })
+    .catch((error) => {
+        console.log('Error al guardar el producto', error);
+        alert("Error al guardar el producto. Intenta de nuevo.");
+    });
+}
+
 
   guardarInputs(event) {
     const { name, value, files } = event.target;
@@ -165,7 +190,7 @@ export default class EditarProductos extends Component {
             </div>
 
             <div>
-              <button type="submit">Guardar</button>
+              <button type="submit" className="boton-general">Guardar</button>
             </div>
           </div>
         </form>

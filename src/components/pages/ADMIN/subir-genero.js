@@ -8,7 +8,7 @@ export default class CrearModeloProducto extends Component {
     this.state = {
       id: "",
       nombre_genero: "",
-      imagen_genero: null // La imagen debe inicializarse como null
+      imagen_genero: null
     };
 
     this.guardarInputs = this.guardarInputs.bind(this);
@@ -49,6 +49,7 @@ export default class CrearModeloProducto extends Component {
         <form className="form-contenedor-subir-nuevo-modelo" onSubmit={this.guardarGeneroNuevo}>
           <div className="contenedor-editor-admin">
             <div className="editor-datos-admin">
+              
               <h3>SUBIR UN NUEVO GÉNERO</h3>
 
               <div className="input-admin">
@@ -66,7 +67,7 @@ export default class CrearModeloProducto extends Component {
             </div>
             
             <div> 
-              <button type="submit">Guardar genero</button>
+              <button type="submit" className="boton-general">Guardar genero</button>
             </div>
           </div>
         </form>

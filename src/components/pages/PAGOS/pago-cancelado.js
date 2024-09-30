@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// CORREGIDO
+
 export default class PagoCancelado extends Component{
   render() {
     return (

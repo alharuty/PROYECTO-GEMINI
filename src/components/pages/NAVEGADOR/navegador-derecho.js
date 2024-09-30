@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 
-// CORREGIDO
 const NavegadorDerecho = () => {
 
   return (

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ImagenOrquidea from "../../../../static/assets/images/Orquidea.jpg";
 
-// CORREGIDO
 export default class Bienvenida extends Component{
   render() {
     return (

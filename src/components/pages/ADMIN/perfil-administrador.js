@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import MuestraProductosApi from './muestra-productos-api';
-import EditarProductos from './editar-productos';
+import CrearProducto from './crear-producto';
 import SubirGenero from "./subir-genero";
 import Generos from "./generos";
 import axios from 'axios';
 
-// CORREGIDO
+
 export default class PerfilAdministrador extends Component {
   constructor(props) {
     super(props);
@@ -36,10 +36,13 @@ export default class PerfilAdministrador extends Component {
   }
 
   editarElProducto(elProducto) {
-    console.log("Probando editaElrProducto", elProducto);
+    console.log("Producto seleccionado para editar:", elProducto);
+    this.setState({
+      productoAEditar: elProducto
+    });
   }
+  
 
-  // su handleSuccessfulFormSubmission
   guardarDatosRellenados(elProducto) {
     // console.log("Probando guardarDatosRellenados", elProducto);
     this.setState({
@@ -78,7 +81,7 @@ export default class PerfilAdministrador extends Component {
 
         <div className="titulo-admin">
           <h3>Perfil de Administrador</h3>
-          <button onClick={this.botonCerrarSesion}>Cerrar Sesión</button>
+          <button onClick={this.botonCerrarSesion} className="boton-general-x">Cerrar Sesión</button>
         </div>
         
 
@@ -87,23 +90,25 @@ export default class PerfilAdministrador extends Component {
           <div className="fila-1">
             <div className="columna-izquierda">
 
-              <EditarProductos guardarDatosRellenados={this.guardarDatosRellenados} errorFormulario={this.errorFormulario}/>
+            <CrearProducto guardarDatosRellenados={this.guardarDatosRellenados} errorFormulario={this.errorFormulario} productoAEditar={this.state.productoAEditar} />
 
-              <SubirGenero />
+
+            <SubirGenero />
 
             </div>
 
             <div className="columna-derecha">
 
               <Generos />
-
+              
             </div>
 
           </div>
 
-
           <div className="fila-2">
+
             <MuestraProductosApi data={this.state.productosSubidos} eliminarElProducto={this.eliminarElProducto} editarElProducto={this.editarElProducto}/>
+            
           </div>
 
         </div>

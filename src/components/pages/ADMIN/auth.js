@@ -31,7 +31,6 @@ export default class Auth extends Component {
         loggedIn: "LOGGED_IN"
       });
 
-      // guardamos en localStorage que el usuario está autenticado
       localStorage.setItem("loggedIn", "LOGGED_IN");
 
       this.props.autenticadoCorrectamente();
@@ -52,10 +51,8 @@ export default class Auth extends Component {
       clave: ""
     });
 
-    // eliminamos estado de autenticación del localStorage
     localStorage.removeItem("loggedIn");
 
-    // redirigimos al usuario a la página de login
     this.props.history.push("/auth");
   }
 

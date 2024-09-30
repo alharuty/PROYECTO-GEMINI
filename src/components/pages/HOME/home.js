@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Iconos from '../../helper/iconos';
 
 Iconos();
-// CORREGIDO
+
 export default class Home extends Component{
   
   render() {

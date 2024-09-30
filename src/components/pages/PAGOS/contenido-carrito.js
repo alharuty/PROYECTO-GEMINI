@@ -1,8 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 
-// CORREGIR NOMBRES DE VARIABLES
+// TODO: CORREGIR NOMBRES DE VARIABLES
 
-// creamos el contexto
 export const ContextoCarrito = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -21,7 +20,6 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // al actualizar el carrito, guardaramos en localStorage
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(allProducts));
     localStorage.setItem('total', total.toString());

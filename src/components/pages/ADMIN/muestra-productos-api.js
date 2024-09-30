@@ -3,7 +3,7 @@ import Iconos from '../../helper/iconos';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 Iconos();
-// CORREGIDO
+
 const MuestraProductosApi = props => {
 
   const listaProductos = props.data.map(elProducto => {
@@ -32,9 +32,7 @@ const MuestraProductosApi = props => {
             <p>Color: {elProducto.color}</p>
             <p>Id: {elProducto.id}</p>
           </div>
-          {/* <div class="boton-editar-item">
-            <button>Editar</button>
-          </div> */}
+          
         </div>
       </div>
       

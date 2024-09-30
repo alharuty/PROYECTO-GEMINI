@@ -1,6 +1,5 @@
 import React from 'react';
 
-// CORREGIDO
 export const Paginacion = ({ productosPorPagina, totalProductos, paginaActual, actualizarPaginaActual }) => {
   const numeroDePaginas = [];
 

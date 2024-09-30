@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-// CORREGIDO
+
 class NavegadorIzquierdo extends Component{
   
   render() {

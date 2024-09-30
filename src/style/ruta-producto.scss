@@ -1,10 +1,125 @@
-.contenedor-ruta-producto {
+.conetendor-ruta-producto {
     display: flex;
-    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
 
-    .producto-cuerpo {
+.producto-cuerpo {
+
+    display: flex;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid $color-textos;
+    box-shadow: 0 8px 20px rgba(0, 84, 78, 0.3);
+    justify-content: center;
+
+    h3 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+        
+    p {
+        margin: 5px 0;
+    }
+
+    .zoom-contenedor {
+        flex: 1;
+        min-width: 250px;
+        max-width: 400px;
+        overflow: hidden;
+        border-radius: 10px;
+        position: relative;
+        margin: 20px;
+
         img {
-            width: 40px;
+            width: 100%;
+            height: auto;
+            transition: transform 0.2s ease;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .datos-del-producto {
+        .ruta-producto-info {
+           .ruta-nombre {
+                border-bottom: 1px solid $color-textos;
+                margin: 30px;
+                text-align: left;
+           }
+
+           .ruta-precio {
+                margin: 30px;
+                @include flex-row;
+                text-align: left;
+                align-content: center;
+                align-items: center;
+                gap: 20px;
+                font-size: 1.5em;
+
+                .precio{
+                    @include flex-row;
+                    .precio-sin-descuento {
+                        text-decoration: line-through;
+                        color: red;
+                    }
+
+                    .precio-con-descuento {
+                        color: black;
+                    }
+                }
+            }
+        }
+
+        .ruta-descripcion {
+            margin: 30px;
+            text-align: left;
+        }
+
+        .ruta-genero {
+            margin: 30px;
+            text-align: left;
+            text-transform: capitalize;
+        }
+
+        .ruta-cantidad {
+            margin: 30px;
+            @include flex-row;
+            align-items: center;
+
+            label {
+                margin-right: 10px;
+            }
+
+            input {
+                width: 60px;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+        }
+
+        .ruta-cantidad-y-carrito {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-content: center;
+            justify-content: left;
+
+            .fotos-aleatorios-carrito {
+                margin: 0;
+                button {
+                    @include boton-general($color-textos);
+
+                    &:hover {
+                        background-color: #0056b3;
+                    }
+                }
+            }
         }
     }
 }

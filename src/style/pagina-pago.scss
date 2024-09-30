@@ -1,12 +1,13 @@
-// CORREGIDO 28/09/2024
-
 .cesta {
     width: 100%;
+    @include flex-column;
+    justify-content: center;
     text-align: center;
+    align-items: center;
 
     .cesta-y-pago {
-        display: grid;
-        grid-template-columns: 3fr 2fr;
+        @include flex-column;
+        width: 90%;
         gap: 20px;
 
         .contenido-cesta {
@@ -56,22 +57,18 @@
             background-color: $color-secundario;
 
             .reellenar-datos-para-envio {
+                width: 100%;
+                @include flex-column;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                gap: 10px;
                 .columna-fila {
                     @include flex-row;
-                    gap: 10px;
+                    gap: 60px;
                     justify-content: left;
                 }
-
             }
         }
     }
-}
-
-
-@media (max-width: 717px) {
-    .cesta-y-pago {
-        @include flex-column;
-        gap: 20px;
-    }
-
 }

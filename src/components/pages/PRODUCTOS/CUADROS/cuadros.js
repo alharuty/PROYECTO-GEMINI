@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ListadoProductos from "./../../listado-productos";
 
-// CORREGIDO
-export default class Cuadros extends Component{
-  render() {
-    return (
-      <div className="cuadros">
-        <ListadoProductos propGenero="cuadros" />
-      </div>
-    );
-  }
+function Cuadros() {
+  return (
+    <div>
+      <h3>CUADROS</h3>
+      <ListadoProductos propGenero="cuadros" />
+    </div>
+  );
 }
+
+export default Cuadros;

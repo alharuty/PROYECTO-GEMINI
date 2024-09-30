@@ -3,7 +3,6 @@ import axios from 'axios';
 import { ContextoCarrito } from './PAGOS/contenido-carrito';
 import { Paginacion } from './paginacion';
 import { withRouter } from 'react-router-dom';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Iconos from "../helper/iconos";
 
@@ -34,12 +33,11 @@ class ListadoProductos extends Component {
   traerProductosDesdeApi = () => {
     axios.get(`http://127.0.0.1:5000/api/productos`)
       .then(response => {
-        // Si hay un propGenero, filtrar productos por género
+
         const productosFiltrados = this.props.propGenero 
           ? response.data.filter(product => product.genero === this.props.propGenero) 
-          : response.data; // Si no hay propGenero, no filtrar
+          : response.data;
   
-        // Si propOutlet es '1', filtrar productos con descuento
         const productosFinales = this.props.propOutlet === '1'
           ? productosFiltrados.filter(product => product.descuento === 1)
           : productosFiltrados;
@@ -73,13 +71,12 @@ class ListadoProductos extends Component {
 
     setTotal(total + product.precio);
     setCountProducts(countProducts + 1);
-    // Mostrar el modal
+
     this.setState({ mostrarModal: true });
 
-    // Ocultar el modal automáticamente después de 3 segundos
     setTimeout(() => {
         this.setState({ mostrarModal: false });
-    }, 3000); // 3 segundos
+    }, 3000);
   };
 
   render() {
@@ -101,7 +98,6 @@ class ListadoProductos extends Component {
                 <div className="info-producto">
                   <h3>{product.nombre}</h3>
 
-                  {/* Mostrar precio con o sin descuento */}
                   <div className="precio">
                     {product.descuento === 1 ? (
                       <p>
@@ -130,14 +126,17 @@ class ListadoProductos extends Component {
                   </button>
 
                 </div>
-                {/* Mostrar el overlay y el modal si el estado es true */}
+
                 {mostrarModal && (
                   <div className="modal-añadido-al-carrito">
-                      <div className="modal-overlay"></div>
-                      <div className="mini-modal">
+                    <div className="modal-overlay"></div>
+                    <div className="mini-modal">
                       <p>Producto añadido al carrito</p>
                       <a href="/pago">Ver mi cesta</a>
-                      </div>
+                      <button className="boton-modal-cerrar" onClick={() => this.setState({ mostrarModal: false })}>
+                        Seguir comprando
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
