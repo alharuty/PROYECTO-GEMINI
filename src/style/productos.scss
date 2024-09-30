@@ -31,7 +31,7 @@
 
 @media (max-width: 775px) {
     .generos-productos-link {
-        @include flex-column;
+        @include flex-row;
 
         .seccion {
             img {
