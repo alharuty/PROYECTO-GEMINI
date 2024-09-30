@@ -205,7 +205,7 @@ const PaginaDePago = () => {
             <div className="contenido-cesta">
 
                 <div>
-                    <h3>PASO ·: Procede al pago</h3>
+                    <h3>PASO 3: Procede al pago</h3>
                 </div>
 
                 <div className='botones-pago'>
