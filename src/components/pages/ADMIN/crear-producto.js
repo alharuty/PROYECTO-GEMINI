@@ -69,7 +69,6 @@ export default class CrearProducto extends Component {
   }
   
   guardarSubida(event) {
-    event.preventDefault();
 
     const { productoAEditar } = this.props;
     const url = productoAEditar && productoAEditar.id 
@@ -103,12 +102,25 @@ export default class CrearProducto extends Component {
     })
     .then((response) => {
         this.props.guardarDatosRellenados(response.data.portfolio_item);
+        this.setState({
+            nombre: "",
+            precio: "",
+            imagen: null,
+            cantidadStock: "",
+            color: 'Rojo',
+            descripcion: "",
+            material: "",
+            descuento: "0",
+            porcentajeDescuento: "0",
+            genero: ""
+        });
     })
     .catch((error) => {
         console.log('Error al guardar el producto', error);
         alert("Error al guardar el producto. Intenta de nuevo.");
     });
-}
+
+  }
 
 
   guardarInputs(event) {
