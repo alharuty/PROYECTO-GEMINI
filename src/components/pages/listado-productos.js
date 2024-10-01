@@ -31,7 +31,7 @@ class ListadoProductos extends Component {
   }
 
   traerProductosDesdeApi = () => {
-    axios.get(`http://127.0.0.1:5000/api/productos`)
+    axios.get(`https://gemini-art-api-947794bf0d42.herokuapp.com/api/productos`)
       .then(response => {
 
         const productosFiltrados = this.props.propGenero 

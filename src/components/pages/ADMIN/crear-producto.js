@@ -25,7 +25,7 @@ export default class CrearProducto extends Component {
 
   componentDidMount() {
     axios
-      .get('http://127.0.0.1:5000/api/generos')
+      .get('https://gemini-art-api-947794bf0d42.herokuapp.com/api/generos')
       .then((response) => {
         this.setState({ productos: response.data });
       })
@@ -72,8 +72,8 @@ export default class CrearProducto extends Component {
 
     const { productoAEditar } = this.props;
     const url = productoAEditar && productoAEditar.id 
-        ? `http://127.0.0.1:5000/api/productos/${productoAEditar.id}/edit`
-        : 'http://127.0.0.1:5000/api/productos/upload';
+        ? `https://gemini-art-api-947794bf0d42.herokuapp.com/api/productos/${productoAEditar.id}/edit`
+        : 'https://gemini-art-api-947794bf0d42.herokuapp.com/api/productos/upload';
 
     const method = productoAEditar && productoAEditar.id ? 'put' : 'post';
 

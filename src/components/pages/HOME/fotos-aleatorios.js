@@ -32,7 +32,7 @@ export default class FotosAleatorios extends Component {
     }
 
     traerProductosDeMuestra() {
-        axios.get("http://127.0.0.1:5000/api/productos")
+        axios.get("https://gemini-art-api-947794bf0d42.herokuapp.com/api/productos")
             .then(response => {
                 this.setState({
                     productosDeMuestra: response.data

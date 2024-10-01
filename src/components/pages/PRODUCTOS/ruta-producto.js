@@ -33,7 +33,7 @@ export default class RutaProducto extends Component {
   traerProductoDesdeApi = () => {
     const { productoId } = this.state;
     axios
-      .get(`http://127.0.0.1:5000/api/productos/${productoId}`)
+      .get(`https://gemini-art-api-947794bf0d42.herokuapp.com/api/productos/${productoId}`)
       .then((response) => {
         this.setState({ producto: response.data });
       })

@@ -23,7 +23,7 @@ export default class PerfilAdministrador extends Component {
   }
 
   eliminarElProducto(elProducto) {
-    axios.delete(`http://127.0.0.1:5000/api/productos/${elProducto.id}`).then(response => {
+    axios.delete(`https://gemini-art-api-947794bf0d42.herokuapp.com/api/productos/${elProducto.id}`).then(response => {
       this.setState({
         productosSubidos: this.state.productosSubidos.filter(item => {
           return item.id !== elProducto.id
@@ -63,7 +63,7 @@ export default class PerfilAdministrador extends Component {
   }
 
   traerProductosDesdeApi() {
-    axios.get('http://127.0.0.1:5000/api/productos')
+    axios.get('https://gemini-art-api-947794bf0d42.herokuapp.com/api/productos')
       .then(response => {
         this.setState({
           productosSubidos: response.data

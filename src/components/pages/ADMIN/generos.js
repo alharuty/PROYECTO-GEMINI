@@ -24,7 +24,7 @@ export default class Generos extends Component {
 
   traerGeneros() {
     axios
-      .get('http://127.0.0.1:5000/api/generos')
+      .get('https://gemini-art-api-947794bf0d42.herokuapp.com/api/generos')
       .then((response) => {
         this.setState({ 
           productos: response.data,

@@ -63,7 +63,7 @@ const PaginaDePago = () => {
     setIsLoading(true);
   
     try {
-      const response = await fetch("http://localhost:5000/checkout", {
+      const response = await fetch("https://gemini-art-api-947794bf0d42.herokuapp.com/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ items: allProducts, cliente }),

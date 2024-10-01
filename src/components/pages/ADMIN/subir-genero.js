@@ -23,7 +23,7 @@ export default class CrearModeloProducto extends Component {
     formData.append("nombre_genero", this.state.nombre_genero);
     formData.append("imagen_genero", this.state.imagen_genero);
 
-    axios.post("http://127.0.0.1:5000/api/generos", formData, {
+    axios.post("https://gemini-art-api-947794bf0d42.herokuapp.com/api/generos", formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
