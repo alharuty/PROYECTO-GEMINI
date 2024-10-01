@@ -1,3 +1,4 @@
+import "./style/main.scss"; // añadido para ver si se quita 't'
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";

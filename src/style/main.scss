@@ -3,8 +3,8 @@ $color-secundario: #988787;
 $color-textos: #00544e; 
 $color-parrafos:  #36454F;
 
-@import "./mixins.scss";
 @import "./app.scss";
+@import "./mixins.scss";
 @import "./auth.scss";
 @import "./muestra-products.scss";
 @import "./prueba-cart.scss";
