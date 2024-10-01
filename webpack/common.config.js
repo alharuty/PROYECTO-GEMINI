@@ -1,14 +1,15 @@
-// common.config.js
+// webpack plugins
 const SplitChunksPlugin = require('webpack/lib/optimize/SplitChunksPlugin');
 
 module.exports = {
   entry: {
-    app: './src/bootstrap.js',  // Se eliminó el array para simplificar
+    app: ['./src/bootstrap.js'],
     vendor: './src/vendor.js',
   },
 
   resolve: {
     extensions: ['.js', '.scss'],
+
     modules: ['node_modules'],
   },
 
@@ -17,27 +18,30 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: ['babel-loader'],
       },
+
       {
+        type: 'javascript/auto',
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
-        type: 'asset/resource', // Usar asset/resource para archivos
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+          publicPath: '/',
+        },
       },
+
       {
         test: /\.(mp4|webm)$/,
-        type: 'asset', // Utiliza 'asset' para manejar archivos multimedia
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024, // 10 KB
-          },
-        },
+        loader: 'url?limit=10000',
       },
     ],
   },
 
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
+  plugins: [
+    new SplitChunksPlugin({
+      name: ['app', 'vendor'],
+      minChunks: Infinity,
+    }),
+  ],
 };
