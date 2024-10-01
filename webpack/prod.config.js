@@ -15,7 +15,7 @@ const LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
 module.exports = webpackMerge(webpackCommon, {
   bail: true,
 
-  devtool: "false",
+  devtool: "source-map",
   mode: "production",
   output: {
     path: path.resolve(__dirname, "../dist"),
