@@ -5,7 +5,7 @@
   "scripts": {
     "preinstall": "npm set audit false",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
-    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --color",
     "heroku-postbuild": "npm run build",
     "precommit": "eslint src",
     "prod": "NODE_ENV=production node server.js"
@@ -73,24 +73,24 @@
     "webpack-merge": "4.2.2"
   },
   "devDependencies": {
-  "autoprefixer": "^9.8.8",
-  "babel-core": "^6.26.3",
-  "babel-loader": "^7.1.5",
-  "babel-preset-env": "^1.7.0",
-  "babel-preset-react": "^6.24.1",
-  "babel-plugin-transform-class-properties": "^6.24.1",
-  "babel-plugin-transform-object-rest-spread": "^6.26.0",
-  "babel-register": "^6.26.0",
-  "css-loader": "^1.0.1",
-  "extract-text-webpack-plugin": "^4.0.0-beta.0",
-  "file-loader": "^1.1.11",
-  "image-webpack-loader": "^8.1.0",
-  "postcss-loader": "^2.1.6",
-  "sass-loader": "^7.3.1",
-  "style-loader": "^0.21.0",
-  "uglifyjs-webpack-plugin": "^1.2.7",
-  "webpack": "^5.95.0",
-  "webpack-cli": "^5.1.4",
-  "webpack-dev-server": "^5.1.0"
+    "autoprefixer": "^9.8.8",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "image-webpack-loader": "^8.1.0",
+    "postcss-loader": "^2.1.6",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   }
 }
