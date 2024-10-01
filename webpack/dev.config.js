@@ -32,21 +32,33 @@ module.exports = webpackMerge(webpackCommon, {
 
     rules: [
       {
-        test: /\.s?css$/,
+        test: /\.s?css$/, // Soporta tanto .css como .scss
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader' // Inserta CSS en el DOM
           },
           {
-            loader: 'css-loader',
+            loader: 'css-loader', // Interpreta @import y url() como import/require
             options: {
-              importLoaders: 2
+              outputStyle: process.env.NODE_ENV === 'production' ? 'compressed' : 'expanded',
+              sourceMap: true,
+              sourceMapContents: true
             }
           },
           {
-            loader: 'sass-loader',
+            loader: 'postcss-loader', // Añadir PostCSS para autoprefixing y optimizaciones
             options: {
-              outputStyle: 'expanded',
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')({ /* opciones de autoprefixer */ })
+                ]
+              }
+            }
+          },
+          {
+            loader: 'sass-loader', // Compila Sass a CSS
+            options: {
+              outputStyle: 'expanded', // Utiliza 'compressed' en producción para reducir tamaño
               sourceMap: true,
               sourceMapContents: true
             }
