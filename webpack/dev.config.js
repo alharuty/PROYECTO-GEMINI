@@ -93,9 +93,6 @@ module.exports = webpackMerge(webpackCommon, {
     historyApiFallback: {
       disableDotRule: true
     },
-    watchOptions: {
-      ignored: /node_modules/
-    },
     overlay: {
       warnings: true,
       errors: true
