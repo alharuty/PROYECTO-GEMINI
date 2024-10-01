@@ -1,5 +1,6 @@
+// posts.config.js
 module.exports = {
-  plugins: {
-    'autoprefixer': {},
-  }
+  plugins: [
+    require('autoprefixer'), // Simplificar la configuración de autoprefixer
+  ],
 };

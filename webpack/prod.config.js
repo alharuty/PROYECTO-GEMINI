@@ -1,125 +1,63 @@
-const path = require("path");
-const webpackMerge = require("webpack-merge");
-const autoprefixer = require("autoprefixer");
-const webpackCommon = require("./common.config");
-
-// webpack plugins
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const DefinePlugin = require("webpack/lib/DefinePlugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
+// prod.config.js
+const path = require('path');
+const webpackMerge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin'); // Usar Terser para minificar el JS
 
 module.exports = webpackMerge(webpackCommon, {
-  bail: true,
-
-  devtool: "false",
-  mode: "production",
+  mode: 'production',
   output: {
-    path: path.resolve(__dirname, "../dist"),
-
-    filename: "[name]-[hash].min.js",
-
-    sourceMapFilename: "[name]-[hash].map",
-
-    chunkFilename: "[id]-[chunkhash].js",
-
-    publicPath: "/"
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name]-[contenthash].min.js', // Usar contenthash
+    chunkFilename: '[id]-[chunkhash].js',
+    publicPath: '/',
   },
 
   module: {
     rules: [
       {
         test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-              loader: "css-loader",
-              options: {
-                sourceMap: true,
-                importLoaders: 2
-              }
+        use: [
+          MiniCssExtractPlugin.loader, // Extraer CSS a archivos
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer')()],
+              },
             },
-            {
-              loader: "postcss-loader",
-              options: {
-                config: {
-                  path: path.resolve(__dirname, "postcss.config.js")
-                },
-                sourceMap: true
-              }
-            },
-            {
-              loader: "sass-loader",
-              options: {
-                outputStyle: "expanded",
-                sourceMap: true,
-                sourceMapContents: true
-              }
-            }
-          ]
-        })
-      }
-    ]
+          },
+          'sass-loader',
+        ],
+      },
+    ],
+  },
+
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, "../static/index.html"),
-      favicon: path.resolve(__dirname, "../static/favicon.ico"),
+      template: path.resolve(__dirname, '../static/index.html'),
+      favicon: path.resolve(__dirname, '../static/favicon.ico'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
-      }
+      },
     }),
-    new CopyWebpackPlugin([{ from: path.resolve(__dirname, "../static") }], {
-      ignore: ["index.html", "favicon.ico"]
-    }),
-    new CleanWebpackPlugin(["dist"], {
-      root: path.resolve(__dirname, ".."),
-      exclude: ".gitignore"
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name]-[chunkhash].min.css',
     }),
     new DefinePlugin({
-      "process.env": {
-        NODE_ENV: '"production"'
-      }
+      'process.env.NODE_ENV': JSON.stringify('production'), // Ajustar para la variable de entorno
     }),
-    new ExtractTextPlugin("[name]-[chunkhash].min.css"),
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          ie8: true,
-          warnings: false
-        },
-        mangle: {
-          ie8: true
-        },
-        output: {
-          comments: false,
-          ie8: true
-        }
-      },
-      sourceMap: true
-    }),
-    new LoaderOptionsPlugin({
-      options: {
-        context: "/",
-        sassLoader: {
-          includePaths: [path.resolve(__dirname, "../src")]
-        }
-      }
-    })
-  ]
+  ],
 });
