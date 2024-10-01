@@ -68,6 +68,7 @@ export default class PerfilAdministrador extends Component {
         this.setState({
           productosSubidos: response.data
         });
+        // console.log("prueba", this.state.productosSubidos);
       })
       .catch(error => {
         console.log('Error al mostrar productosSubidos', error);
