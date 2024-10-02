@@ -23,7 +23,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      autenticado: localStorage.getItem("loggedIn") === "LOGGED_IN" ? "LOGGED_IN" : "NOT_LOGGED",
+      autenticado: localStorage.getItem("loggedIn") === "LOGGED_IN"
     };
 
     this.autenticadoCorrectamente = this.autenticadoCorrectamente.bind(this);
@@ -68,12 +68,13 @@ class App extends Component {
               <Route path="/pago-cancelado" component={PagoCancelado} />
               
               <Route path="/auth" render={(props) => (
-                autenticado === "NOT_LOGGED" ? (
-                  <Auth {...props} autenticadoCorrectamente={this.autenticadoCorrectamente} />
-                ) : (
-                  <Redirect to="/perfil-administrador" />
-                )
-              )} />
+                  autenticado ? (
+                    <Redirect to="/perfil-administrador" />
+                  ) : (
+                    <Auth {...props} autenticadoCorrectamente={this.autenticadoCorrectamente} />
+                  )
+                )}
+              />
 
               <Route 
                 path="/perfil-administrador"
