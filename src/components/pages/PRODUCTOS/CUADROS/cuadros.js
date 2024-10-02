@@ -5,7 +5,7 @@ function Cuadros() {
   return (
     <div>
       <h3>CUADROS</h3>
-      <ListadoProductos propGenero="Cuadros" />
+      <ListadoProductos propGenero="cuadros" />
     </div>
   );
 }

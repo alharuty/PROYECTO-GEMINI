@@ -5,7 +5,7 @@ function Otros(){
     return (
       <div>
         <h3>OTROS</h3>
-        <ListadoProductos propGenero="Otros" />
+        <ListadoProductos propGenero="otros" />
       </div>
     );
 }

@@ -41,10 +41,10 @@ export default class Productos extends Component{
         {secciones.length > 0 ? secciones.map(seccion => (
           <div key={seccion.id} className="seccion">
             <Zoom>
-              <NavLink to={seccion.nombre_genero}>
+              <NavLink to={seccion.nombre_genero.toLowerCase()}>
                 <img src={seccion.imagen_genero} alt={seccion.nombre_genero} />
               </NavLink>
-              <NavLink to={seccion.nombre_genero} className="texto-h2">
+              <NavLink to={seccion.nombre_genero.toLowerCase()} className="texto-h2">
                 <h2>{seccion.nombre_genero}</h2>
               </NavLink>
             </Zoom>

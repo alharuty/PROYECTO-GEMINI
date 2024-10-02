@@ -5,7 +5,7 @@ function Pendientes() {
   return (
     <div>
       <h3>PENDIENTES</h3>
-      <ListadoProductos propGenero="Pendientes" />
+      <ListadoProductos propGenero="pendientes" />
     </div>
   );
 }
