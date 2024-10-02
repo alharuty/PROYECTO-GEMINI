@@ -16,6 +16,7 @@ export default class CrearModeloProducto extends Component {
   }
 
   guardarGeneroNuevo(event) {
+    event.preventDefault();
     const formData = new FormData();
     formData.append("id", this.state.id);
     formData.append("nombre_genero", this.state.nombre_genero);
