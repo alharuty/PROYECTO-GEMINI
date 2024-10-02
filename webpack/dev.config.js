@@ -90,9 +90,7 @@ module.exports = webpackMerge(webpackCommon, {
     watchContentBase: true,
     compress: true,
     hot: true,
-    historyApiFallback: {
-      disableDotRule: true
-    },
+    historyApiFallback: true,
     overlay: {
       warnings: true,
       errors: true
