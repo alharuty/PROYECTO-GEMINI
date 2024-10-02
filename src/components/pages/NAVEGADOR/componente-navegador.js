@@ -26,6 +26,7 @@ function ComponenteNavegador() {
 
           <Carrito allProducts={allProducts} setAllProducts={setAllProducts} total={total} setTotal={setTotal} countProducts={countProducts} setCountProducts={setCountProducts} />
         
+          <a href="/auth">Iniciar sesion</a>
         </div>
       </header>
     </div>
