@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ContextoCarrito } from '../PAGOS/contenido-carrito';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Iconos from "../../helper/iconos";
+import { Link } from 'react-router-dom';
 
 Iconos();
 
