@@ -148,7 +148,7 @@ export default class RutaProducto extends Component {
             <div className="modal-overlay"></div>
             <div className="mini-modal">
               <p>Producto añadido al carrito</p>
-              <a href="/pago">Ver mi cesta</a>
+              <Link to="/pago">Ver mi cesta</Link>
               <button className="boton-modal-cerrar" onClick={() => this.setState({ mostrarModal: false })}>
                 Seguir comprando
               </button>
