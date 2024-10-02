@@ -12,6 +12,7 @@
 
         .contenido-cesta {
             background-color: $color-secundario;
+            margin-bottom: 40px;
 
             .producto-cesta {
                 display: grid;
@@ -71,4 +72,8 @@
             }
         }
     }
+}
+
+.botones-pago {
+    margin-bottom: 40px;;
 }
