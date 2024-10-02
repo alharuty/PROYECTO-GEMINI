@@ -42,7 +42,7 @@ class App extends Component {
       autenticado: false
     });
     localStorage.removeItem("loggedIn");
-    this.props.history.push("/auth");
+    this.props.history.push("/");
   }
 
   render() {
@@ -82,7 +82,7 @@ class App extends Component {
                   return autenticado ? (
                     <PerfilAdministrador {...props} cerrarSesionAdmin2={this.cerrarSesionAdmin2} />
                   ) : (
-                    <Redirect to="/auth" />
+                    <Redirect to="/" />
                   );
                 }}
               />
