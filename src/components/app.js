@@ -68,13 +68,12 @@ class App extends Component {
               <Route path="/pago-cancelado" component={PagoCancelado} />
               
               <Route path="/auth" render={(props) => (
-                  autenticado ? (
-                    <Redirect to="/perfil-administrador" />
-                  ) : (
-                    <Auth {...props} autenticadoCorrectamente={this.autenticadoCorrectamente} />
-                  )
-                )}
-              />
+                autenticado === "NOT_LOGGED" ? (
+                  <Auth {...props} autenticadoCorrectamente={this.autenticadoCorrectamente} />
+                ) : (
+                  <Redirect to="/perfil-administrador" />
+                )
+              )} />
 
               <Route 
                 path="/perfil-administrador"
