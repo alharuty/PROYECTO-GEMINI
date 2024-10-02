@@ -97,22 +97,22 @@ module.exports = webpackMerge(webpackCommon, {
       }
     }),
     new ExtractTextPlugin("[name]-[chunkhash].min.css"),
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          ie8: true,
-          warnings: false
-        },
-        mangle: {
-          ie8: true
-        },
-        output: {
-          comments: false,
-          ie8: true
-        }
-      },
-      sourceMap: true
-    }),
+    // new UglifyJsPlugin({
+    //   uglifyOptions: {
+    //     compress: {
+    //       ie8: true,
+    //       warnings: false
+    //     },
+    //     mangle: {
+    //       ie8: true
+    //     },
+    //     output: {
+    //       comments: false,
+    //       ie8: true
+    //     }
+    //   },
+    //   sourceMap: true
+    // }),
     new LoaderOptionsPlugin({
       options: {
         context: "/",
