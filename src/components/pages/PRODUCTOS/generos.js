@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Zoom from 'react-reveal/Zoom';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 export default class Productos extends Component{
   constructor() {
@@ -38,18 +39,19 @@ export default class Productos extends Component{
     return (
       <div className="productos-link generos-productos-link">
         {secciones.length > 0 ? secciones.map(seccion => (
-          
           <div key={seccion.id} className="seccion">
             <Zoom>
-              <a href={seccion.nombre_genero}><img src={seccion.imagen_genero}/></a>
-              <a href={seccion.nombre_genero} className="texto-h2"><h2>{seccion.nombre_genero}</h2></a>
+              <NavLink to={seccion.nombre_genero}>
+                <img src={seccion.imagen_genero} alt={seccion.nombre_genero} />
+              </NavLink>
+              <NavLink to={seccion.nombre_genero} className="texto-h2">
+                <h2>{seccion.nombre_genero}</h2>
+              </NavLink>
             </Zoom>
           </div>
-
-        )) :
-          <div> No hay ninguna seccion</div>
-        }
-
+        )) : (
+          <div>No hay ninguna sección</div>
+        )}
       </div>
     );
   }
