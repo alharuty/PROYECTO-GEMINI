@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ImagenYo from "../../../../static/assets/images/Imagen-Yo.jpg"
 
-// CORREGIDO
 export default class About extends Component{
   render() {
     return (
@@ -28,8 +27,7 @@ export default class About extends Component{
             </div>
             
           </div>
-
-        </div>    
+        </div>
       </div>
     );
   }

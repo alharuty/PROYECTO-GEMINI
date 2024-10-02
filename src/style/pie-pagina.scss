@@ -1,0 +1,57 @@
+.pie-pagina {
+    background-color: $color-secundario;
+    @include flex-row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+
+    .paginas-interes {
+        @include flex-column;
+        text-align: left;
+
+        a {
+            text-decoration: none;
+            color: $color-parrafos;
+
+            &:hover {
+                color: $color-textos;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .servicios-contenedor {
+        .servicios-iconos {
+            @include flex-row;
+            justify-content: left;
+            align-items: center;
+            gap: 40px;
+            color: $color-parrafos;
+        }
+    }
+
+    .datos-contacto {
+        @include flex-column;
+        align-content: center;
+        .contacto {
+            @include flex-row;
+            justify-content: left;
+            align-items: center;
+            gap: 40px;
+            color: $color-parrafos;
+
+
+            a {
+                text-decoration: none;
+                color: $color-parrafos;
+
+                &:hover {
+                    color: $color-textos;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+}
