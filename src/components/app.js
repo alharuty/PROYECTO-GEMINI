@@ -23,7 +23,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      autenticado: localStorage.getItem("loggedIn") === "LOGGED_IN"
+      autenticado: localStorage.getItem("loggedIn") === "LOGGED_IN" ? "LOGGED_IN" : "NOT_LOGGED",
     };
 
     this.autenticadoCorrectamente = this.autenticadoCorrectamente.bind(this);
