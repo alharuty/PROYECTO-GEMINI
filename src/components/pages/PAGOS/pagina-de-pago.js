@@ -199,20 +199,8 @@ const PaginaDePago = () => {
                     ))}
                 </ul>
                 )}
-                <h2>
-                    {(() => {
-                        if (total.toFixed(2) >= 140) {
-                            return (<div><p>Envío GRATUÍTO</p>
-                                    <h2>Total a pagar:{total.toFixed(2)}€</h2>;
-                                    </div>
-                                    )
-                        } else {
-                            return (<div><p>Envío 5€</p>
-                                    <h2>Total a pagar: ${(total + 5).toFixed(2)}€</h2>
-                                    </div>)
-                        }
-                    })()}
-                </h2>
+                <h3>Envío GRATUÍTO durante el mes de Octubre</h3>
+                <h2>Total a pagar: {total.toFixed(2)}€</h2>
             </div>
 
             <div className="contenido-cesta">
