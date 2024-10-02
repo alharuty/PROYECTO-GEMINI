@@ -69,6 +69,7 @@ export default class CrearProducto extends Component {
   }
   
   guardarSubida(event) {
+    event.preventDefault();
 
     const { productoAEditar } = this.props;
     const url = productoAEditar && productoAEditar.id 

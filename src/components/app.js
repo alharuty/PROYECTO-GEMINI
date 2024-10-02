@@ -10,7 +10,7 @@ import Outlet from "./pages/PRODUCTOS/outlet";
 import ComponenteNavegador from "./pages/NAVEGADOR/componente-navegador";
 import PerfilAdministrador from './pages/ADMIN/perfil-administrador';
 import Page404 from "./pages/page404";
-import PaginaDePago from "./pages/PAGOS/mi-cesta";
+import PaginaDePago from "./pages/PAGOS/pagina-de-pago";
 import Productos from "./pages/PRODUCTOS/generos";
 import Cuadros from "./pages/PRODUCTOS/CUADROS/cuadros";
 import { CartProvider } from './pages/PAGOS/contenido-carrito';

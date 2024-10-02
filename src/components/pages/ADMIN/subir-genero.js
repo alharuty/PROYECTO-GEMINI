@@ -16,8 +16,6 @@ export default class CrearModeloProducto extends Component {
   }
 
   guardarGeneroNuevo(event) {
-    event.preventDefault();
-
     const formData = new FormData();
     formData.append("id", this.state.id);
     formData.append("nombre_genero", this.state.nombre_genero);
@@ -30,6 +28,11 @@ export default class CrearModeloProducto extends Component {
     })
     .then(response => {
       console.log("Genero guardado exitosamente", response.data);
+      this.setState({
+        id: "",
+        nombre_genero: "",
+        imagen_genero: null
+      });
     })
     .catch(error => {
       console.error("Error guardarGeneroNuevo", error);
