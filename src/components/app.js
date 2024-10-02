@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "../style/main.scss";
-import { BrowserRouter as Router, Route, withRouter, Redirect } from "react-router-dom";
+import { HashRouter as Router, Route, withRouter, Redirect } from "react-router-dom";
 import Home from "./pages/HOME/home";
 import About from "./pages/SOBRE-MI/about";
 import Pendientes from "./pages/PRODUCTOS/PENDIENTES/pendientes";
