@@ -39,7 +39,8 @@
                     color: $color-textos;
                 }
     
-                button {
+                button, .boton-ver-mas {
+                    text-decoration: none;
                     background-color: $color-base;
                     border: none;
                     margin-left: 30px;

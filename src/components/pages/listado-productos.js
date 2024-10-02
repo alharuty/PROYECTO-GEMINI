@@ -5,6 +5,7 @@ import { Paginacion } from './paginacion';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Iconos from "../helper/iconos";
+import { Link } from 'react-router-dom';
 
 Iconos();
 
@@ -94,7 +95,7 @@ class ListadoProductos extends Component {
           {productosSubidos.length > 0 ? productosActuales.map(product => (
             <div key={product.id} className="contenedor-stock">
               <div className="item">
-                <a href={`/producto/${product.id}`}><img src={product.imagen} alt={product.nombre} /></a>
+                <Link to={`/producto/${product.id}`}><img src={product.imagen} alt={product.nombre} /></Link>
                 <div className="info-producto">
                   <h3>{product.nombre}</h3>
 
@@ -121,9 +122,8 @@ class ListadoProductos extends Component {
                   </button>
                   
 
-                  <button onClick={() => this.props.history.push(`/producto/${product.id}`)}>
-                    Ver más
-                  </button>
+                  <Link to={`/producto/${product.id}`} className="boton-ver-mas">Ver más</Link>
+
 
                 </div>
 

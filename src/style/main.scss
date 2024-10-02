@@ -141,3 +141,23 @@ input, select {
         }
     }
 }
+
+@media (max-width: 500px) {
+    .cesta{
+        .cesta-y-pago{
+            .info-cliente {
+                .reellenar-datos-para-envio {
+                    .columna-fila {
+                        gap: 5px;
+                    }
+                }
+            }
+        }
+    }
+    .input-wrapper{
+        .inputs-formularios {
+            width: 70%;
+        }
+    }
+
+}

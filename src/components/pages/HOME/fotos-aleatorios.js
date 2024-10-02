@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { ContextoCarrito } from '../PAGOS/contenido-carrito';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Iconos from "../../helper/iconos";
+import { Link } from 'react-router-dom';
 
 Iconos();
 
@@ -101,7 +102,7 @@ export default class FotosAleatorios extends Component {
                     {this.state.cuatroProductosAMostrar.length > 0 ? (
                         this.state.cuatroProductosAMostrar.map((producto, index) => (
                             <div className="producto-de-muestra" key={index}>
-                                <a href={`/producto/${producto.id}`} className="imagen-producto-muestra"><img src={producto.imagen} alt={producto.nombre}></img></a>
+                                <Link to={`/producto/${producto.id}`} className="imagen-producto-muestra"><img src={producto.imagen} alt={producto.nombre}></img></Link>
                                 <h4>{producto.nombre}</h4>
                                 <p>{producto.color}</p>
                                 <div className="contenedor-carrito-fotos-aleatorios">

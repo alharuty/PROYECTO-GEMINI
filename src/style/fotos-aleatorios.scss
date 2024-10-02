@@ -61,7 +61,7 @@
                 }
 
                 .fotos-aleatorios-carrito {
-                    margin: 5px;
+                    margin: 0px;
                     button {
                         background-color: $color-base;
                         border: none;
@@ -74,7 +74,7 @@
                     
                     }
                     .icono-bag-shopping {
-                        font-size: 18px;
+                        font-size: 20px;
                         color: $color-textos;
 
                         &:hover {
@@ -132,6 +132,8 @@
                         height: 20vh;
                     }
                 }
+
+                
                 
             } 
         }
@@ -159,4 +161,23 @@
             font-size: 0.8em;
         }
     }
-} 
+}
+
+@media (max-width: 500px) {
+    .productos-de-muestra-home {
+        .home-productos-de-muestra {
+            .producto-de-muestra {
+                .contenedor-carrito-fotos-aleatorios {
+                    .fotos-aleatorios-carrito{
+                        .icono-bag-shopping {
+                            font-size: 14px;
+                        }
+                    }
+                        
+
+                }
+                
+            } 
+        }
+    }
+}

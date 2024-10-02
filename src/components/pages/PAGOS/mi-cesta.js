@@ -199,6 +199,7 @@ const PaginaDePago = () => {
                     ))}
                 </ul>
                 )}
+                <h3>Envío GRATUÍTO durante el mes de Octubre</h3>
                 <h2>Total a pagar: {total.toFixed(2)}€</h2>
             </div>
 
