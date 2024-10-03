@@ -4,10 +4,10 @@ module.exports = {
     secure: true,
     headers: {
       'Host': 'api.github.com',
-      'Cookie': '' // send cookie on demand
+      'Cookie': ''
     },
     pathRewrite: function (path) {
-      return path.replace(/^\/node-0/, ''); // remove '/node-0' prefix when requesting
+      return path.replace(/^\/node-0/, '');
     }
   },
   '/node-1': {
@@ -15,10 +15,10 @@ module.exports = {
     secure: true,
     headers: {
       'Host': 'registry.npmjs.org',
-      'Cookie': '' // send cookie on demand
+      'Cookie': ''
     },
     pathRewrite: function (path) {
-      return path.replace(/^\/node-1/, ''); // remove '/node-1' prefix when requesting
+      return path.replace(/^\/node-1/, '');
     }
   }
 };

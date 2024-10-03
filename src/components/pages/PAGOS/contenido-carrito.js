@@ -1,7 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 
-// TODO: CORREGIR NOMBRES DE VARIABLES
-
 export const ContextoCarrito = createContext();
 
 export const CartProvider = ({ children }) => {

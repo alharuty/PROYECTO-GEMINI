@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-// CORREGIDO
 export default class Auth extends Component {
   constructor() {
     super();

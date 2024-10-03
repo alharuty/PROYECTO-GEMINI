@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Paginacion } from '../paginacion';
 
-// CORREGIDO
 export default class Generos extends Component {
   constructor() {
     super();
