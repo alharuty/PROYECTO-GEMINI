@@ -52,7 +52,7 @@ function PiePagina() {
         </div>
 
         <div className="copy">
-            <p>© 2021 Gemini Art | by @allharuty</p>
+            <p>© 2024 Gemini Art | by @allharuty</p>
         </div>
     </div>
   );
